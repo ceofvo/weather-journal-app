@@ -1,5 +1,5 @@
 /* Global Variables */
-const apiKey = 'e9d97167a9c8c13686e07a2b3c822dcb';
+const apiKey = 'e9d97167a9c8c13686e07a2b3c822dcb&units=imperial';
 const baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip='
 
 // Create a new date instance dynamically with JS
@@ -16,7 +16,7 @@ let processRequest =(event)=> {
   getWeather(baseURL, zipCode, apiKey)
   .then((data)=>{
     // Add data
-    postData('/add', {date:newDate, temp: data.main.temp, content:yourFeelings} );
+    return postData('/add', {date:newDate, temp: data.main.temp, content:yourFeelings} );
   })
   .then(
     ()=>{
